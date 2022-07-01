@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Developer
+{% endblock %}
+
+{% block body %}
+	<h1>Developer</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ developer.id }}</td>
+			</tr>
+			<tr>
+				<th>FullName</th>
+				<td>{{ developer.FullName }}</td>
+			</tr>
+			<tr>
+				<th>AboutMe</th>
+				<td>{{ developer.AboutMe }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ developer.Email }}</td>
+			</tr>
+			<tr>
+				<th>Adress</th>
+				<td>{{ developer.Adress }}</td>
+			</tr>
+			<tr>
+				<th>Speciality</th>
+				<td>{{ developer.Speciality }}</td>
+			</tr>
+			<tr>
+				<th>BirthDate</th>
+				<td>{{ developer.BirthDate ? developer.BirthDate|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>YearsExp</th>
+				<td>{{ developer.YearsExp }}</td>
+			</tr>
+			<tr>
+				<th>WorkStyle</th>
+				<td>{{ developer.WorkStyle }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_developer_index') }}">back to list</a>
+
+	<a href="{{ path('app_developer_edit', {'id': developer.id}) }}">edit</a>
+
+	
+{% endblock %}

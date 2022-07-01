@@ -1,0 +1,54 @@
+<table width="35%" text-align="center">
+	<form action="{{path('app_developer_new') }}" enctype="multipart/form-data" method="post">
+		<tr align="center">
+			<td>FullName</td>
+			<td>{{form_widget(form.FullName)}}</td>
+		</tr>
+		<tr align="center">
+			<td>BirthDate</td>
+			<td>{{form_widget(form.BirthDate)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Speciality</td>
+			<td>{{form_widget(form.Speciality)}}</td>
+		</tr>
+		<tr align="center">
+			<td>AboutMe</td>
+			<td>{{form_widget(form.AboutMe)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Adress</td>
+			<td>{{form_widget(form.Adress)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Email</td>
+			<td>{{form_widget(form.Email)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Years Of Expereience</td>
+			<td>{{form_widget(form.YearsExp)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Work Style Preferred</td>
+			<td>{{form_widget(form.WorkStyle)}}</td>
+		</tr>
+		<tr align="center">
+			<td>Languages</td>
+			<td>
+				{{form_widget(form.languages)}}</td>
+		</tr>
+		<tr align="center">
+			<td>File</td>
+			<td>
+				{{form_widget(form.File)}}</td>
+		</tr>
+		<tr align="center">
+			<td><input type="reset" value="Annuler"></td>
+			<td><input type="hidden" name="token" value="{{ csrf_token('app_developer_new') }}">
+				<input type="submit" value="Valider">
+			</td>
+		</tr>
+		{{form_widget(form)}}
+	</form>
+
+</table>

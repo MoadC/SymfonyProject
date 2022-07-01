@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Developer index
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-dark text-center mt-5 mb-5" >Developers List</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Image</th>
+				<th>FullName</th>
+				<th>AboutMe</th>
+				<th>Email</th>
+				<th>Adress</th>
+				<th>Speciality</th>
+				<th>BirthDate</th>
+				<th>YearsExp</th>
+				<th>Work Style Preferred</th>
+				<th>Languages</th>
+				
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for developer in developers %}
+				<tr>
+					<td>{{ developer.id }}</td>
+					<td><img src="{{ asset('photos/') ~ developer.File }}" width=80 height=60></td>
+					<td>{{ developer.FullName }}</td>
+					<td>{{ developer.AboutMe }}</td>
+					<td>{{ developer.Email }}</td>
+					<td>{{ developer.Adress }}</td>
+					<td>{{ developer.Speciality }}</td>
+					<td>{{ developer.BirthDate ? developer.BirthDate|date('Y-m-d') : '' }}</td>
+					<td>{{ developer.YearsExp }}</td>
+					<td>{{ developer.WorkStyle }}</td>
+					<td>
+						{% for lang in developer.Languages %}
+							{{ lang }}
+						</br>
+					{% endfor %}
+					</td>
+					
+					<td>
+						<a href="{{ path('app_developer_show', {'id': developer.id}) }}" class="badge badge-primary">show</a>
+						<a href="{{ path('app_developer_edit', {'id': developer.id}) }}" class="badge badge-info">edit</a>
+						{{ include('developer/_delete_form.html.twig') }}
+					</td>
+			</tr>
+
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+	<div style="text-align: center;display: block;width: 100%" >  
+		<a href="{{ path('app_developer_new') }}" class="badge badge-primary" style="font-size:25px;padding: 10px 10px">Create new</a>
+	</div>
+    
+{% endblock %}
+
