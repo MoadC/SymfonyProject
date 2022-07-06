@@ -9,12 +9,25 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <h1> {{app.user.username}}</h1>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/DevsWorld/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/DevsWorld/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <h1 class="text-dark text-center mt-5 mb-5">Hello! {{app.user.username}} ✅</h1>
+    <br>
+    <br>
+    <br>
+
+    <div class="d-flex justify-content-center"> The developers List is here : </div>
+    <div class="d-flex justify-content-center">
+    	<a href="{{ path('app_developer_index') }}" class='btn btn-outline-secondary'>
+				Go To Developers List
+			</a></div>
+	
+    <br>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center">Your Languages list is here:   </div>
+    <div class="d-flex justify-content-center"> 
+        <a href="{{ path('app_language_index') }}" class='btn btn-outline-secondary'>
+				Go To Languages List
+			</a>
+    </div>
 </div>
 {% endblock %}
