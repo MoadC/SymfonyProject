@@ -17,9 +17,9 @@
         <tbody>
         {% for language in languages %}
             <tr>
-                <td>{{ language.id }}</td>
-                <td>{{ language.Name }}</td>
-                <td>{{ language.Description }}</td>
+                <td class="align-middle">{{ language.id }}</td>
+                <td class="align-middle">{{ language.Name }}</td>
+                <td class="align-middle">{{ language.Description }}</td>
                 <td>
                     <a href="{{ path('app_language_show', {'id': language.id}) }}">show</a>
                     <a href="{{ path('app_language_edit', {'id': language.id}) }}">edit</a>

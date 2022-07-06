@@ -27,27 +27,32 @@
 		<tbody>
 			{% for developer in developers %}
 				<tr>
-					<td>{{ developer.id }}</td>
-					<td><img src="{{ asset('photos/') ~ developer.File }}" width=80 height=60></td>
-					<td>{{ developer.FullName }}</td>
-					<td>{{ developer.AboutMe }}</td>
-					<td>{{ developer.Email }}</td>
-					<td>{{ developer.Adress }}</td>
-					<td>{{ developer.Speciality }}</td>
-					<td>{{ developer.BirthDate ? developer.BirthDate|date('Y-m-d') : '' }}</td>
-					<td>{{ developer.YearsExp }}</td>
-					<td>{{ developer.WorkStyle }}</td>
-					<td>
+					<td class="align-middle">{{ developer.id }}</td>
+					<td  class="align-middle"><img src="{{ asset('photos/') ~ developer.File }}" width=80 height=60></td>
+					<td class="align-middle">{{ developer.FullName }}</td>
+					<td class="align-middle">{{ developer.Email }}</td>
+					<td class="align-middle">{{ developer.Adress }}</td>
+					<td class="align-middle">{{ developer.AboutMe }}</td>
+					<td class="align-middle">{{ developer.Speciality }}</td>
+					<td class="align-middle">{{ developer.BirthDate ? developer.BirthDate|date('Y-m-d') : '' }}</td>
+					<td class="align-middle">{{ developer.YearsExp }}</td>
+					<td class="align-middle">{{ developer.WorkStyle }}</td>
+					<td class="align-middle">
 						{% for lang in developer.Languages %}
 							{{ lang }}
 						</br>
 					{% endfor %}
 					</td>
 					
-					<td>
-						<a href="{{ path('app_developer_show', {'id': developer.id}) }}" class="badge badge-primary">show</a>
+					<td  class="align-middle">
+						<a href="{{ path('app_developer_show', {'id': developer.id}) }}" class="btn btn-outline-secondary">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+						</a>
 						<a href="{{ path('app_developer_edit', {'id': developer.id}) }}" class="badge badge-info">edit</a>
-						{{ include('developer/_delete_form.html.twig') }}
+						<a href="{{ path('app_developer_delete', {'id': developer.id}) }}" class="badge badge-danger">Delete</a>						
 					</td>
 			</tr>
 
