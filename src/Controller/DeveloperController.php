@@ -122,7 +122,6 @@ class DeveloperController extends AbstractController
         ]);
     }
 
- 
 
     /**
      * @Route("/delete/{id}", name="app_developer_delete")

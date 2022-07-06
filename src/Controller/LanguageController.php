@@ -77,13 +77,14 @@ class LanguageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_language_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="app_language_delete")
      */
-    public function delete(Request $request, Language $language, LanguageRepository $languageRepository): Response
+    public function delete($id, Language $language, LanguageRepository $languageRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$language->getId(), $request->request->get('_token'))) {
-            $languageRepository->remove($language, true);
-        }
+        $em = $this->getDoctrine()->getManager();
+        $language = $languageRepository->find($id);
+        $em->remove($language);
+        $em->flush();
 
         return $this->redirectToRoute('app_language_index', [], Response::HTTP_SEE_OTHER);
     }
